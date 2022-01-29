@@ -1,8 +1,5 @@
-let contacts = [];
 
-function Contacts() {
-      return(
-         contacts = [
+const contacts = [
             {
               name: "Beyonce",
               imgURL:
@@ -25,6 +22,6 @@ function Contacts() {
               email: "gmail@chucknorris.com"
             }
           ]
-      )
-  }
-  export default Contacts;
+
+//adding export so we can use this constant contacts across other js files
+  export default contacts;
