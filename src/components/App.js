@@ -1,6 +1,20 @@
 import React from "react";
 import Contacts from "./contacts";
 import Card from "./Card";
+import contacts from "./contacts";
+
+
+//this creates a Card when a contact is put into it - React always requires a key for repeating element because it creates a version of the DOM so the 'key' must be added to identify each component
+function createCard(contact){
+    return( <Card
+    key={contact.id}
+    id={contact.id}
+    name={contact.name}
+    img={contact.imgURL}
+    email={contact.email}
+    phone={contact.phone}
+    />)
+}
 
 //App using Card to generate dynamic datas and information from contacts.js to populate the Cards
 function App(props) {
@@ -8,23 +22,9 @@ function App(props) {
     return(
         <div>
         <h1 className="heading">My Contacts</h1>
-        <Card
-        name={Contacts[0].name}
-        img={Contacts[0].imgURL}
-        phone={Contacts[0].phone}
-        email={Contacts[0].email}/>
 
-        <Card
-        name={Contacts[1].name}
-        img={Contacts[1].imgURL}
-        phone={Contacts[1].phone}
-        email={Contacts[1].email}/>
-
-        <Card
-        name={Contacts[2].name}
-        img={Contacts[2].imgURL}
-        phone={Contacts[2].phone}
-        email={Contacts[2].email}/>
+        {/*this .map() is using the .createCard() to map through contacts and create Card for each contact  */ }
+        {contacts.map(createCard)}
         
         </div>
     )
